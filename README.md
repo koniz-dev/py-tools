@@ -13,14 +13,6 @@ A comprehensive collection of Python utilities for document processing, image ma
 - Automatic ZIP creation for multiple files
 - Google Colab compatible
 
-### 📄 PDF to HTML Converter (`pdf2html.ipynb`)
-- Convert PDF files to clean HTML format
-- Preserve text content and basic formatting
-- Extract and display table structures
-- Optional image extraction with positioning info
-- Process single PDFs, folders, or ZIP files
-- Responsive HTML output with modern styling
-- Google Colab compatible
 
 ### 🔍 OCR Text Extractor (`ocr_extractor.ipynb`)
 - Extract text from images using Optical Character Recognition
@@ -67,8 +59,9 @@ A comprehensive collection of Python utilities for document processing, image ma
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Python 3.6+
+- Python 3.8+ (recommended: Python 3.9+)
 - Jupyter Notebook or Google Colab
+- For OCR: Tesseract OCR engine (see installation notes below)
 
 ### Installation
 
@@ -80,13 +73,41 @@ A comprehensive collection of Python utilities for document processing, image ma
 
 2. **Install required packages:**
    ```bash
-   pip install pillow pdfplumber PyMuPDF pytesseract opencv-python PyPDF2 reportlab python-docx python-magic textstat selenium webdriver-manager beautifulsoup4 requests
+   pip install -r requirements.txt
    ```
 
 3. **Launch Jupyter Notebook:**
    ```bash
    jupyter notebook
    ```
+
+### Additional Setup for OCR
+
+For OCR functionality, you need to install Tesseract OCR:
+
+**Windows:**
+```bash
+# Download and install from: https://github.com/UB-Mannheim/tesseract/wiki
+# Add to PATH: C:\Program Files\Tesseract-OCR
+```
+
+**macOS:**
+```bash
+brew install tesseract
+```
+
+**Linux (Ubuntu/Debian):**
+```bash
+sudo apt update
+sudo apt install tesseract-ocr
+sudo apt install tesseract-ocr-vie  # For Vietnamese support
+```
+
+**Google Colab:**
+```bash
+# Tesseract is pre-installed, just install language packs if needed
+!apt install tesseract-ocr-vie
+```
 
 ### Usage
 
@@ -100,16 +121,6 @@ A comprehensive collection of Python utilities for document processing, image ma
    ```
 3. Run all cells to convert
 
-#### PDF to HTML Conversion
-1. Open `pdf2html.ipynb`
-2. Configure your settings:
-   ```python
-   path_arg = "document.pdf"            # Single PDF
-   path_arg = "path/to/pdfs/"           # Folder
-   path_arg = "documents.zip"           # ZIP file
-   extract_images = True                # Include image info
-   ```
-3. Run all cells to convert
 
 #### OCR Text Extraction
 1. Open `ocr_extractor.ipynb`
@@ -160,11 +171,11 @@ A comprehensive collection of Python utilities for document processing, image ma
 ```
 py-tools/
 ├── image2pdf.ipynb          # Image to PDF converter
-├── pdf2html.ipynb           # PDF to HTML converter
 ├── ocr_extractor.ipynb      # OCR text extractor
 ├── pdf_merger.ipynb         # PDF merger & splitter
 ├── document_analyzer.ipynb  # Document analyzer
 ├── web_scraper.ipynb        # Web scraper & PDF converter
+├── requirements.txt         # Python dependencies
 └── README.md                # This file
 ```
 
@@ -177,13 +188,6 @@ py-tools/
 - **Output options:** Single PDF or ZIP with multiple PDFs
 - **Colab integration:** Direct download in Google Colab environment
 
-### PDF to HTML Converter
-- **Advanced text extraction:** Preserves formatting and layout
-- **Table recognition:** Converts PDF tables to HTML tables
-- **Image handling:** Extracts image information and positioning
-- **Responsive design:** Clean, modern HTML output
-- **Font analysis:** Detects bold, italic, and size variations
-- **Page structure:** Maintains page breaks and numbering
 
 ### OCR Text Extractor
 - **Multi-language support:** English, Vietnamese, Chinese, Japanese, Korean
@@ -241,12 +245,6 @@ path_arg = "/path/to/images/"
 # Output: images_pdfs.zip (contains multiple PDFs)
 ```
 
-### Convert PDF with images
-```python
-path_arg = "document.pdf"
-extract_images = True
-# Output: document.html (with image placeholders)
-```
 
 ### Extract text from image
 ```python
@@ -314,9 +312,48 @@ This project is open source and available under the [MIT License](LICENSE).
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
+## 🔧 Troubleshooting
+
+### Common Issues
+
+**OCR not working:**
+- Ensure Tesseract is installed and in your PATH
+- Check language packs are installed for your target languages
+- Try different image preprocessing settings
+
+**PDF processing errors:**
+- Ensure PDF files are not password-protected
+- Check file permissions and disk space
+- Try with smaller files first
+
+**Web scraping issues:**
+- Update Chrome/Chromium browser
+- Check internet connection
+- Some sites may block automated access
+
+**Memory issues with large files:**
+- Process files in smaller batches
+- Use Google Colab for better memory management
+- Consider file compression before processing
+
+### Performance Tips
+
+- Use Google Colab for better performance and memory
+- Process files in batches for large datasets
+- Enable headless mode for web scraping
+- Use appropriate image quality settings for OCR
+
 ## 📞 Support
 
 If you encounter any issues or have questions, please open an issue on the repository.
+
+## 🆕 Recent Updates
+
+- ✅ Added comprehensive requirements.txt
+- ✅ Improved installation instructions
+- ✅ Enhanced OCR setup guide
+- ✅ Added troubleshooting section
+- ✅ Updated project structure documentation
 
 ---
 
