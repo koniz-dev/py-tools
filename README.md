@@ -71,14 +71,16 @@ A comprehensive collection of Python utilities for document processing, image ma
    cd py-tools
    ```
 
-2. **Install required packages:**
+2. **Choose a tool and install its dependencies:**
    ```bash
+   # For example, to use Image to PDF converter:
+   cd image2pdf
    pip install -r requirements.txt
    ```
 
 3. **Launch Jupyter Notebook:**
    ```bash
-   jupyter notebook
+   jupyter notebook tool.ipynb
    ```
 
 ### Additional Setup for OCR
@@ -111,72 +113,68 @@ sudo apt install tesseract-ocr-vie  # For Vietnamese support
 
 ### Usage
 
-#### Image to PDF Conversion
-1. Open `image2pdf.ipynb`
-2. Set your file path in the configuration cell:
-   ```python
-   path_arg = "path/to/your/image.jpg"  # Single image
-   path_arg = "path/to/images/"         # Folder
-   path_arg = "images.zip"              # ZIP file
-   ```
-3. Run all cells to convert
+Each tool is now organized in its own folder with dedicated documentation. Navigate to any tool folder and follow its specific README:
 
+#### 📸 Image to PDF Converter
+```bash
+cd image2pdf
+jupyter notebook tool.ipynb
+```
+See `image2pdf/README.md` for detailed usage instructions.
 
-#### OCR Text Extraction
-1. Open `ocr_extractor.ipynb`
-2. Configure your settings:
-   ```python
-   path_arg = "screenshot.png"          # Single image
-   path_arg = "path/to/images/"         # Folder
-   language = "auto"                    # Auto-detect or specify
-   include_details = True               # Detailed analysis
-   ```
-3. Run all cells to extract text
+#### 📚 PDF Merger & Splitter
+```bash
+cd pdf_merger
+jupyter notebook tool.ipynb
+```
+See `pdf_merger/README.md` for detailed usage instructions.
 
-#### PDF Merging & Splitting
-1. Open `pdf_merger.ipynb`
-2. Configure your settings:
-   ```python
-   operation = "merge"                  # "merge", "split", "merge_custom"
-   path_arg = "path/to/pdfs/"           # Folder with PDFs
-   add_watermark = False                # Add watermark
-   split_mode = "pages"                 # Split mode
-   ```
-3. Run all cells to process
+#### 🔍 OCR Text Extractor
+```bash
+cd ocr_extractor
+jupyter notebook tool.ipynb
+```
+See `ocr_extractor/README.md` for detailed usage instructions.
 
-#### Document Analysis
-1. Open `document_analyzer.ipynb`
-2. Configure your settings:
-   ```python
-   path_arg = "document.pdf"            # Single document
-   path_arg = "path/to/documents/"      # Folder
-   include_hashes = True                # Calculate file hashes
-   detailed_analysis = True             # Full analysis
-   ```
-3. Run all cells to analyze
+#### 📊 Document Analyzer
+```bash
+cd document_analyzer
+jupyter notebook tool.ipynb
+```
+See `document_analyzer/README.md` for detailed usage instructions.
 
-#### Web Scraping & PDF Conversion
-1. Open `web_scraper.ipynb`
-2. Configure your settings:
-   ```python
-   urls = ["https://example.com"]       # URLs to convert
-   mode = "pdf"                         # "pdf" or "screenshot"
-   crawl_mode = False                   # Enable crawling
-   headless = True                      # Headless browser
-   ```
-3. Run all cells to convert
+#### 🌐 Web Scraper & PDF Converter
+```bash
+cd web_scraper
+jupyter notebook tool.ipynb
+```
+See `web_scraper/README.md` for detailed usage instructions.
 
 ## 📁 Project Structure
 
 ```
 py-tools/
-├── image2pdf.ipynb          # Image to PDF converter
-├── ocr_extractor.ipynb      # OCR text extractor
-├── pdf_merger.ipynb         # PDF merger & splitter
-├── document_analyzer.ipynb  # Document analyzer
-├── web_scraper.ipynb        # Web scraper & PDF converter
-├── requirements.txt         # Python dependencies
-└── README.md                # This file
+├── image2pdf/               # Image to PDF converter
+│   ├── tool.ipynb          # Main notebook
+│   ├── requirements.txt    # Dependencies
+│   └── README.md           # Tool documentation
+├── pdf_merger/             # PDF merger & splitter
+│   ├── tool.ipynb          # Main notebook
+│   ├── requirements.txt    # Dependencies
+│   └── README.md           # Tool documentation
+├── ocr_extractor/          # OCR text extractor
+│   ├── tool.ipynb          # Main notebook
+│   ├── requirements.txt    # Dependencies
+│   └── README.md           # Tool documentation
+├── document_analyzer/      # Document analyzer
+│   ├── tool.ipynb          # Main notebook
+│   ├── requirements.txt    # Dependencies
+│   └── README.md           # Tool documentation
+├── web_scraper/            # Web scraper & PDF converter
+│   ├── tool.ipynb          # Main notebook
+│   ├── requirements.txt    # Dependencies
+│   └── README.md           # Tool documentation
+└── README.md               # This file
 ```
 
 ## 🔧 Features in Detail
@@ -349,11 +347,12 @@ If you encounter any issues or have questions, please open an issue on the repos
 
 ## 🆕 Recent Updates
 
-- ✅ Added comprehensive requirements.txt
-- ✅ Improved installation instructions
-- ✅ Enhanced OCR setup guide
-- ✅ Added troubleshooting section
-- ✅ Updated project structure documentation
+- ✅ **Reorganized project structure** - Each tool now has its own folder
+- ✅ **Individual requirements.txt** - Separate dependencies for each tool
+- ✅ **Dedicated README files** - Each tool has its own documentation
+- ✅ **Improved modularity** - Easy to use tools independently
+- ✅ **Enhanced installation guide** - Tool-specific setup instructions
+- ✅ **Added troubleshooting section** - Common issues and solutions
 
 ---
 

@@ -1,0 +1,7 @@
+# Image to PDF Converter Requirements
+Pillow>=9.0.0
+jupyter>=1.0.0
+ipywidgets>=8.0.0
+
+# Optional: For Google Colab compatibility
+google-colab>=1.0.0
